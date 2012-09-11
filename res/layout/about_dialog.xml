@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent" android:orientation="vertical">
+    <LinearLayout android:id="@+id/linearLayout1" android:layout_height="wrap_content" android:layout_width="fill_parent" android:orientation="vertical">
+        <TextView android:id="@+id/textView1" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:text="HDHomerun Signal Meter" android:layout_width="wrap_content" android:layout_gravity="center_horizontal" android:layout_marginTop="50dp"></TextView>
+    </LinearLayout>
+    <TextView android:id="@+id/versionText" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:text="TextView" android:layout_width="wrap_content" android:layout_gravity="center_horizontal" android:layout_marginTop="5dp"></TextView>
+    <TextView android:id="@+id/modelText" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:text="TextView" android:layout_width="wrap_content" android:layout_gravity="center_horizontal" android:layout_marginTop="5dp"></TextView>
+    <TextView android:id="@+id/textView2" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:text="John Anderson" android:layout_width="wrap_content" android:layout_gravity="center_horizontal" android:layout_marginTop="25dp"></TextView>
+    <TextView android:id="@+id/textView3" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceSmall" android:text="zaren678@gmail.com" android:layout_width="wrap_content" android:layout_gravity="center_horizontal" android:layout_marginTop="5dp"></TextView>
+    
+</LinearLayout>

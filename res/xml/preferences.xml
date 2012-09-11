@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceCategory android:title="@string/ui_settings_str" android:key="ui_settings">
+		<CheckBoxPreference android:summaryOn="@string/lock_orientation_on" android:title="@string/lock_orientation_string" android:key="lock_orientation" android:summaryOff="@string/lock_orientation_off"/>
+	</PreferenceCategory>
+	<PreferenceCategory android:title="@string/cablecard_settings_string" android:key="cablecard_settings"><CheckBoxPreference android:defaultValue="false" android:title="@string/pref_vTune" android:summaryOn="@string/pref_vTune_on" android:summaryOff="@string/pref_vTune_off" android:key="vTune_pref" /></PreferenceCategory>
+	<PreferenceCategory android:title="@string/debug_pref_cat_title" android:key="debug_pref_cat"><CheckBoxPreference android:key="debug_to_file_pref" android:title="@string/pref_debug_to_file" android:summaryOn="@string/pref_debug_to_file_on" android:summaryOff="@string/pref_debug_to_file_off" android:defaultValue="false"></CheckBoxPreference></PreferenceCategory>
+	
+	
+
+</PreferenceScreen>

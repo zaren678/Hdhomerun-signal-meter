@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/details_menu_refresh" android:enabled="true" android:title="@string/details_menu_refresh" android:icon="@drawable/ic_menu_refresh"/>
+    <item android:icon="@drawable/ic_menu_pwr" android:id="@+id/details_menu_restart_self" android:title="@string/details_menu_restart_self" android:enabled="true"/>
+    <item android:id="@+id/details_menu_restart_cablecard" android:icon="@drawable/ic_menu_pwr" android:title="@string/details_menu_restart_cablecard" android:enabled="true"></item>
+</menu>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Hdhomerun Signal Meter</string>
+    <string name="pref_vTune">Tune to Virtual Channel</string>
+    <string name="pref_vTune_on">Tuning uses virtual channel numbers (Cablecard Only)</string>
+    <string name="pref_vTune_off">Tuning uses physical channel numbers (Cablecard Only)</string>
+    <string name="menu_prefs">Settings</string>
+    <string name="menu_about">About</string><string name="menu_details">Tuner Details</string>
+    <string name="set_preferences">Settings</string>
+    <string name="pref_debug_to_file">Debug to File</string>
+    <string name="pref_debug_to_file_on">Debug being written to hdhomerun-signal-meter.log</string>
+    <string name="pref_debug_to_file_off">Debug to file off</string>
+    <string name="about_activity">About</string>
+    <string name="details_activity">Tuner Details</string>
+    <string name="details_menu_restart_self">Restart Device</string><string name="details_menu_restart_cablecard">Restart Cablecard</string>
+    <string name="details_menu_refresh">Refresh</string>
+    <string name="tune_button_label">Tune</string>
+    <string name="zero_label">0</string>
+    <string name="lock_orientation_string">Lock Orientation</string>
+    <string name="ui_settings_str">UI Settings</string>
+    <string name="lock_orientation_on">Lock Orientation to Portrait</string>
+    <string name="lock_orientation_off">Allow Landscape and Portrait Layouts</string>
+    <string name="cablecard_settings_string">Cablecard Settings</string>
+    <string name="debug_pref_cat_title">Debug Settings</string>
+</resources>
