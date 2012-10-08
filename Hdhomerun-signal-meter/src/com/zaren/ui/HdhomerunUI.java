@@ -1,7 +1,5 @@
 package com.zaren.ui;
 
-import java.util.ArrayList;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
@@ -21,6 +19,7 @@ import com.zaren.HdhomerunActivity;
 import com.zaren.Preferences;
 import com.zaren.R;
 import com.zaren.HdhomerunSignalMeterLib.data.ChannelScanProgram;
+import com.zaren.HdhomerunSignalMeterLib.data.CurrentChannelAndProgram;
 import com.zaren.HdhomerunSignalMeterLib.data.DeviceController;
 import com.zaren.HdhomerunSignalMeterLib.data.DeviceListInt;
 import com.zaren.HdhomerunSignalMeterLib.data.DeviceResponse;
@@ -29,6 +28,7 @@ import com.zaren.HdhomerunSignalMeterLib.data.HdhomerunDiscoverDeviceArray;
 import com.zaren.HdhomerunSignalMeterLib.data.OnChannelMapSelectedListener;
 import com.zaren.HdhomerunSignalMeterLib.data.OnDeviceSelectedListener;
 import com.zaren.HdhomerunSignalMeterLib.data.OnProgramSelectedListener;
+import com.zaren.HdhomerunSignalMeterLib.data.ProgramsList;
 import com.zaren.HdhomerunSignalMeterLib.data.TunerStatus;
 import com.zaren.HdhomerunSignalMeterLib.events.ChannelChangedObserverInt;
 import com.zaren.HdhomerunSignalMeterLib.events.ChannelMapListChangedObserverInt;
@@ -461,9 +461,11 @@ public class HdhomerunUI implements HdhomerunSignalMeterUiInt,
    }
 
    @Override
-   public void tunerStatusChanged( DeviceResponse aDeviceResponse, DeviceController aDeviceController, TunerStatus aTunerStatus )
+   public void tunerStatusChanged( DeviceResponse aResponse,
+         DeviceController aDeviceController, TunerStatus aTunerStatus,
+         CurrentChannelAndProgram aCurrentChannel )
    {
-      if( aDeviceResponse.getStatus() == DeviceResponse.SUCCESS )
+      if( aResponse.getStatus() == DeviceResponse.SUCCESS )
       {
          setChannelText(Utils.getChannelStringFromTunerStatusChannel(aDeviceController.getDevice(), aTunerStatus.channel, aTunerStatus.lockStr));
          setSigStrBar(aTunerStatus);
@@ -482,7 +484,7 @@ public class HdhomerunUI implements HdhomerunSignalMeterUiInt,
                theChannelEditNum = Integer.parseInt( mChannelEditText.getText().toString() );
             }
             
-            int theStatusNum = Utils.getChannelNumberFromTunerStatusChannel(mCntrl.getDevice(), aTunerStatus.channel, aTunerStatus.lockStr);
+            int theStatusNum = Utils.getChannelNumberFromTunerStatusChannel(mCntrl.getDevice(), aTunerStatus.channel);
             
             if( theChannelEditNum != theStatusNum &&
                 !mChannelEditText.hasFocus() )
@@ -499,15 +501,16 @@ public class HdhomerunUI implements HdhomerunSignalMeterUiInt,
       }
       else
       {
-         HandleFailureResponse( aDeviceResponse );
+         HandleFailureResponse( aResponse );
       }
    }
 
    @Override
-   public void programListChanged( DeviceController aDeviceController, ArrayList<ChannelScanProgram> aProgramList, int aChannel )
+   public void programListChanged( DeviceController aDeviceController,
+         ProgramsList aPrograms, int aChannel )
    {
       ArrayAdapter<ChannelScanProgram> adapter = new ArrayAdapter<ChannelScanProgram>(mMainActivity,
-            android.R.layout.simple_spinner_item, aProgramList);
+            android.R.layout.simple_spinner_item, aPrograms.toList() );
       adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
       mProgramSpinner.setArrayAdapter(adapter);
       mProgramSpinner.setOnItemSelectedListener(new OnProgramSelectedListener(mCntrl));      
@@ -621,6 +624,5 @@ public class HdhomerunUI implements HdhomerunSignalMeterUiInt,
       
       ErrorHandler.HandleError( theString.toString() );
    }
-
-    
+ 
 }
