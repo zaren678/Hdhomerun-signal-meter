@@ -47,11 +47,12 @@ containing a value of this type.
         public static final int ic_menu_refresh=0x7f020008;
         public static final int ic_menu_rrwd=0x7f020009;
         public static final int ic_menu_settings=0x7f02000a;
-        public static final int icon=0x7f02000b;
-        public static final int progressbargreen=0x7f02000c;
-        public static final int progressbarneutral=0x7f02000d;
-        public static final int progressbarred=0x7f02000e;
-        public static final int progressbaryellow=0x7f02000f;
+        public static final int ic_menu_sort_alphabetically=0x7f02000b;
+        public static final int icon=0x7f02000c;
+        public static final int progressbargreen=0x7f02000d;
+        public static final int progressbarneutral=0x7f02000e;
+        public static final int progressbarred=0x7f02000f;
+        public static final int progressbaryellow=0x7f020010;
     }
     public static final class id {
         public static final int LinearLayout1=0x7f090022;

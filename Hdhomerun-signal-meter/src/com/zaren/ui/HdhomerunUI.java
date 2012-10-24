@@ -342,7 +342,7 @@ public class HdhomerunUI implements HdhomerunSignalMeterUiInt,
    {
       if(mCntrl != null)
       {
-         mCntrl.pause();
+         mCntrl.stopTunerStatusUpdates();
       }
    }
 
@@ -350,7 +350,7 @@ public class HdhomerunUI implements HdhomerunSignalMeterUiInt,
    {
       if(mCntrl != null)
       {
-         mCntrl.resume();
+         mCntrl.startTunerStatusUpdates();
       }  
    }
 
