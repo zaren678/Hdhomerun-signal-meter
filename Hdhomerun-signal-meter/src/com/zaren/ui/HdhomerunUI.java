@@ -507,7 +507,7 @@ public class HdhomerunUI implements HdhomerunSignalMeterUiInt,
 
    @Override
    public void programListChanged( DeviceController aDeviceController,
-         ProgramsList aPrograms, int aChannel )
+         ProgramsList aPrograms, int aChannel, boolean aIsSubscribed )
    {
       ArrayAdapter<ChannelScanProgram> adapter = new ArrayAdapter<ChannelScanProgram>(mMainActivity,
             android.R.layout.simple_spinner_item, aPrograms.toList() );
