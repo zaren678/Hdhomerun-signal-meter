@@ -64,6 +64,7 @@ public class HdhomerunUI implements HdhomerunSignalMeterUiInt, IndeterminateProg
    private HdhomerunActivity mMainActivity;
    private ProgressBarDrawables mProgressBarDrawables;
    private boolean mEnableDetailsMenu = false;
+   private boolean mIsBusy = false;
    private static DeviceController mCntrl;
 
    /**
@@ -424,12 +425,6 @@ public class HdhomerunUI implements HdhomerunSignalMeterUiInt, IndeterminateProg
    }
 
    @Override
-   public void setProgressBarBusy( boolean aIsBusy )
-   {
-      mMainActivity.setProgressBarIndeterminateVisibility( aIsBusy );
-   }
-
-   @Override
    public void setDeviceList( HdhomerunDiscoverDeviceArray aDeviceList )
    {
       int oldDevicePos = mDeviceSpinner.getSelectedItemPosition();
@@ -600,6 +595,26 @@ public class HdhomerunUI implements HdhomerunSignalMeterUiInt, IndeterminateProg
       }
 
       ErrorHandler.HandleError( theString.toString() );
+   }
+
+   @Override
+   public void setProgressBarBusy( boolean aIsBusy )
+   {
+      mMainActivity.setProgressBarIndeterminateVisibility( aIsBusy );
+      mIsBusy = aIsBusy;
+   }
+
+   @Override
+   public boolean getProgressBarBusy()
+   {
+      return mIsBusy;
+   }
+
+   @Override
+   public Context getContext()
+   {
+      // TODO Auto-generated method stub
+      return null;
    }
 
 }
