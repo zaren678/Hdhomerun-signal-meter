@@ -161,3 +161,14 @@ pip-log.txt
 
 # Mac crap
 .DS_Store
+/.idea/.name
+/.idea/ant.xml
+/.idea/compiler.xml
+/.idea/encodings.xml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/scopes/scope_settings.xml
+/.idea/uiDesigner.xml
+/.idea/vcs.xml
+/.idea/workspace.xml
+/Hdhomerun-signal-meter/Hdhomerun-signal-meter.iml
