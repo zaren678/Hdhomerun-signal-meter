@@ -17,6 +17,6 @@
               android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
          <activity android:name="Preferences" android:label="@string/set_preferences"></activity>
          <activity android:label="@string/about_activity" android:name="AboutActivity"></activity>
-         <activity android:name="src.com.zaren.DetailsActivity" android:label="@string/details_activity"></activity>
+         <activity android:name="DetailsActivity" android:label="@string/details_activity"></activity>
     </application>
 </manifest>

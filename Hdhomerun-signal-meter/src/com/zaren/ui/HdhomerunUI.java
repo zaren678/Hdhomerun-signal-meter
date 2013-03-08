@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.os.Handler;
 
 import com.zaren.HdhomerunActivity;
 import com.zaren.Preferences;
@@ -66,6 +67,7 @@ public class HdhomerunUI implements HdhomerunSignalMeterUiInt, IndeterminateProg
    private boolean mEnableDetailsMenu = false;
    private boolean mIsBusy = false;
    private static DeviceController mCntrl;
+   private Handler mUiHandler;
 
    /**
     * @param mainActivity
@@ -76,6 +78,7 @@ public class HdhomerunUI implements HdhomerunSignalMeterUiInt, IndeterminateProg
    {
       mMainActivity = mainActivity;
       mCntrl = deviceControl;
+      mUiHandler = new Handler();
    }
 
    public void buildUIElements()
@@ -255,7 +258,7 @@ public class HdhomerunUI implements HdhomerunSignalMeterUiInt, IndeterminateProg
       SharedPreferences mPreferences = PreferenceManager.getDefaultSharedPreferences( HdhomerunActivity.getAppContext() );
       boolean virtualTune = mPreferences.getBoolean( Preferences.KEY_PREF_VTUNE, false );
 
-      mCntrl.setTunerChannel( channel, virtualTune );
+      mCntrl.setTunerChannel( "auto:" + channel, virtualTune );
    }
 
    private void setChannelText( String aChannel )
@@ -442,7 +445,7 @@ public class HdhomerunUI implements HdhomerunSignalMeterUiInt, IndeterminateProg
    }
 
    @Override
-   public void tunerStatusChanged( DeviceResponse aResponse, DeviceController aDeviceController, TunerStatus aTunerStatus,
+   public void tunerStatusChanged( DeviceResponse aResponse, final DeviceController aDeviceController, TunerStatus aTunerStatus,
          CurrentChannelAndProgram aCurrentChannel )
    {
       if( aResponse.getStatus() == DeviceResponse.SUCCESS )
@@ -464,13 +467,27 @@ public class HdhomerunUI implements HdhomerunSignalMeterUiInt, IndeterminateProg
                theChannelEditNum = Integer.parseInt( mChannelEditText.getText().toString() );
             }
 
-            int theStatusNum = Utils.getChannelNumberFromTunerStatusChannel( mCntrl.getDevice(), aTunerStatus.channel );
+            final int theStatusNum = Utils.getChannelNumberFromTunerStatusChannel( aDeviceController.getDevice(), aTunerStatus.channel );
 
-            if( theChannelEditNum != theStatusNum && !mChannelEditText.hasFocus() )
+            if( theChannelEditNum != theStatusNum )
             {
                mChannelEditText.setText( theStatusNum + "" );
 
                // TODO if we hit this case we need to refresh the program list
+
+
+               mUiHandler.postDelayed( new Runnable()
+               {
+                  @Override
+                  public void run()
+                  {
+                     final ProgramsList thePrograms = new ProgramsList();
+                     aDeviceController.getDevice().getTunerStreamInfo( thePrograms );
+
+                     programListChanged( aDeviceController, thePrograms, theStatusNum );
+                  }
+               }, 500 );
+
             }
          }
          catch( NumberFormatException e )

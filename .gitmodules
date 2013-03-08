@@ -1,1 +1,4 @@
 
+[submodule "HdhomerunSignalMeterLib"]
+	path = HdhomerunSignalMeterLib
+	url = https://github.com/zaren678/HdhomerunSignalMeterLib.git
