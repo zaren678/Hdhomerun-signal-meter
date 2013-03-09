@@ -258,7 +258,7 @@ public class HdhomerunUI implements HdhomerunSignalMeterUiInt, IndeterminateProg
       SharedPreferences mPreferences = PreferenceManager.getDefaultSharedPreferences( HdhomerunActivity.getAppContext() );
       boolean virtualTune = mPreferences.getBoolean( Preferences.KEY_PREF_VTUNE, false );
 
-      mCntrl.setTunerChannel( "auto:" + channel, virtualTune );
+      mCntrl.setTunerChannel( channel + "", virtualTune );
    }
 
    private void setChannelText( String aChannel )
