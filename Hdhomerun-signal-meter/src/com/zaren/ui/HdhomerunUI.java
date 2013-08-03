@@ -471,10 +471,10 @@ public class HdhomerunUI implements HdhomerunSignalMeterUiInt, IndeterminateProg
 
             if( theChannelEditNum != theStatusNum )
             {
-               mChannelEditText.setText( theStatusNum + "" );
-
-               // TODO if we hit this case we need to refresh the program list
-
+               if( !mChannelEditText.hasFocus() )
+               {
+                  mChannelEditText.setText( theStatusNum + "" );
+               }
 
                mUiHandler.postDelayed( new Runnable()
                {
