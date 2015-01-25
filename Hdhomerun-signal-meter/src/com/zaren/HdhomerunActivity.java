@@ -18,14 +18,18 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.Window;
+
+import android.net.wifi.WifiManager;
+import java.math.BigInteger;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.nio.ByteOrder;
 
 public class HdhomerunActivity extends Activity
 {
@@ -125,13 +129,35 @@ public class HdhomerunActivity extends Activity
 		this.unregisterReceiver(wifiReceiver);
 	}
 
+    protected String wifiIpAddress(Context context) {
+        // from http://stackoverflow.com/questions/16730711/get-my-wifi-ip-address-android
+
+        WifiManager wifiManager = (WifiManager) context.getSystemService(WIFI_SERVICE);
+        int ipAddress = wifiManager.getConnectionInfo().getIpAddress();
+
+        // Convert little-endian to big-endianif needed
+        if (ByteOrder.nativeOrder().equals(ByteOrder.LITTLE_ENDIAN)) {
+            ipAddress = Integer.reverseBytes(ipAddress);
+        }
+
+        byte[] ipByteArray = BigInteger.valueOf(ipAddress).toByteArray();
+
+        String ipAddressString;
+        try {
+            ipAddressString = InetAddress.getByAddress(ipByteArray).getHostAddress();
+        } catch (UnknownHostException ex) {
+            // Log.e("WIFIIP", "Unable to get host address.");
+            ipAddressString = null;
+        }
+
+        return ipAddressString;
+    }
+
 	public void discoverDevices()
 	{
-	   ConnectivityManager manager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
-	   NetworkInfo wifiInfo = manager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
-	   Boolean isWifi = wifiInfo.isConnectedOrConnecting();
-  
-	   if(isWifi == false)
+       Boolean isWifi = wifiIpAddress(context) != null;
+
+       if(isWifi == false)
 	   {
 	      ErrorHandler.HandleError("Wifi must be connected");
 	      return;
