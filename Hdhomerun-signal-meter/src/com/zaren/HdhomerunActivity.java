@@ -155,7 +155,7 @@ public class HdhomerunActivity extends Activity
 
 	public void discoverDevices()
 	{
-       Boolean isWifi = wifiIpAddress(context) != null;
+       boolean isWifi = wifiIpAddress(context) != null;
 
        if(isWifi == false)
 	   {
