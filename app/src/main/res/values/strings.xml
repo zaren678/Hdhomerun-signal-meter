@@ -22,4 +22,6 @@
     <string name="lock_orientation_off">Allow Landscape and Portrait Layouts</string>
     <string name="cablecard_settings_string">Cablecard Settings</string>
     <string name="debug_pref_cat_title">Debug Settings</string>
+
+    <string name="banner_ad_unit_id">ca-app-pub-7745283123657409/4518400779</string>
 </resources>

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:zaren="http://schemas.android.com/apk/res/com.zaren"
-        android:layout_height="fill_parent"
-        android:baselineAligned="true"
-        android:layout_width="fill_parent"
-        android:orientation="vertical">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zaren="http://schemas.android.com/apk/res-auto"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="fill_parent"
+    android:baselineAligned="true"
+    android:layout_width="fill_parent"
+    android:orientation="vertical">
     <!--    <LinearLayout android:id="@+id/linearLayout7" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="vertical" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads">-->
     <!--       <com.google.ads.AdView android:layout_height="wrap_content" android:layout_width="wrap_content" ads:adSize="BANNER" ads:adUnitId="a14e6d7a1b7ed1a" android:id="@+id/adView" android:layout_gravity="bottom"/>-->
     <!--    </LinearLayout>-->
@@ -34,17 +35,17 @@
                     <TextView
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
-                            android:text="@string/device_label"
+                            tools:text="device_label"
                             android:id="@+id/textView10"
                             android:textAppearance="?android:attr/textAppearanceLarge"
-                            android:layout_gravity="center_vertical"></TextView>
+                            android:layout_gravity="center_vertical"/>
 
                     <com.zaren.HdhomerunSignalMeterLib.ui.ArraySpinner
                             android:id="@+id/deviceSpinner"
                             android:layout_height="wrap_content"
                             android:layout_width="123dp"
                             zaren:ignoreFirst="false"
-                            android:layout_gravity="center"></com.zaren.HdhomerunSignalMeterLib.ui.ArraySpinner>
+                            android:layout_gravity="center"/>
 
                     <ImageButton
                             android:layout_height="50dp"
@@ -53,7 +54,7 @@
                             android:src="@drawable/ic_menu_refresh"
                             android:scaleType="fitCenter"
                             android:padding="0dp"
-                            android:minWidth="75dp"></ImageButton>
+                            android:minWidth="75dp"/>
                 </LinearLayout>
             </TableRow>
 
@@ -64,20 +65,20 @@
                     android:id="@+id/tableRow1">
 
                 <TextView
-                        android:text="@string/channel_label"
+                        tools:text="channel_label"
                         android:id="@+id/textView1"
                         android:layout_height="wrap_content"
                         android:layout_weight="1.5"
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:layout_width="0dp"></TextView>
+                        android:layout_width="0dp"/>
 
                 <TextView
-                        android:text="@string/none_label"
+                        tools:text="none_label"
                         android:id="@+id/channelTextView"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:layout_width="0dp"></TextView>
+                        android:layout_width="0dp"/>
             </TableRow>
 
             <TableRow
@@ -87,19 +88,19 @@
                     android:id="@+id/tableRow2">
 
                 <TextView
-                        android:text="@string/signal_strength_label"
+                        tools:text="signal_strength_label"
                         android:id="@+id/textView3"
                         android:layout_height="wrap_content"
                         android:layout_weight="1.5"
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:layout_width="0dp"></TextView>
+                        android:layout_width="0dp"/>
 
                 <com.zaren.HdhomerunSignalMeterLib.ui.SigStrengthProgressBar
                         style="?android:attr/progressBarStyleHorizontal"
                         android:layout_width="0dp"
                         android:layout_height="fill_parent"
                         android:layout_weight="1"
-                        android:id="@+id/signalStrengthBar"></com.zaren.HdhomerunSignalMeterLib.ui.SigStrengthProgressBar>
+                        android:id="@+id/signalStrengthBar"/>
             </TableRow>
 
             <TableRow
@@ -109,19 +110,19 @@
                     android:id="@+id/tableRow3">
 
                 <TextView
-                        android:text="@string/snr_quality_label"
+                        tools:text="snr_quality_label"
                         android:id="@+id/textView4"
                         android:layout_height="wrap_content"
                         android:layout_weight="1.5"
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:layout_width="0dp"></TextView>
+                        android:layout_width="0dp"/>
 
                 <com.zaren.HdhomerunSignalMeterLib.ui.SnrQualityProgressBar
                         style="?android:attr/progressBarStyleHorizontal"
                         android:layout_width="0dp"
                         android:layout_height="fill_parent"
                         android:layout_weight="1"
-                        android:id="@+id/snrQualBar"></com.zaren.HdhomerunSignalMeterLib.ui.SnrQualityProgressBar>
+                        android:id="@+id/snrQualBar"/>
             </TableRow>
 
             <TableRow
@@ -131,19 +132,19 @@
                     android:id="@+id/tableRow4">
 
                 <TextView
-                        android:text="@string/sym_quality_label"
+                        tools:text="sym_quality_label"
                         android:id="@+id/textView5"
                         android:layout_height="wrap_content"
                         android:layout_weight="1.5"
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:layout_width="0dp"></TextView>
+                        android:layout_width="0dp"/>
 
                 <com.zaren.HdhomerunSignalMeterLib.ui.SymbolQualityProgressBar
                         style="?android:attr/progressBarStyleHorizontal"
                         android:layout_width="0dp"
                         android:layout_height="fill_parent"
                         android:layout_weight="1"
-                        android:id="@+id/symQualhBar"></com.zaren.HdhomerunSignalMeterLib.ui.SymbolQualityProgressBar>
+                        android:id="@+id/symQualhBar"/>
             </TableRow>
 
             <TableRow
@@ -153,12 +154,12 @@
                     android:id="@+id/tableRow5">
 
                 <TextView
-                        android:text="@string/data_rate_label"
+                        tools:text="data_rate_label"
                         android:id="@+id/textView6"
                         android:layout_height="wrap_content"
                         android:layout_weight="1.5"
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:layout_width="0dp"></TextView>
+                        android:layout_width="0dp"/>
 
                 <TextView
                         android:text="@string/zero_label"
@@ -166,7 +167,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:layout_width="0dp"></TextView>
+                        android:layout_width="0dp"/>
             </TableRow>
 
             <TableRow
@@ -176,12 +177,12 @@
                     android:id="@+id/tableRow6">
 
                 <TextView
-                        android:text="@string/network_rate_label"
+                        tools:text="network_rate_label"
                         android:id="@+id/textView8"
                         android:layout_height="wrap_content"
                         android:layout_weight="1.5"
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:layout_width="0dp"></TextView>
+                        android:layout_width="0dp"/>
 
                 <TextView
                         android:text="@string/zero_label"
@@ -189,7 +190,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:layout_width="0dp"></TextView>
+                        android:layout_width="0dp"/>
             </TableRow>
         </TableLayout>
 
@@ -197,6 +198,7 @@
                 android:id="@+id/linearLayout1"
                 android:layout_height="fill_parent"
                 android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
                 android:layout_width="0dp"
                 android:orientation="vertical"
                 android:layout_weight="1">
@@ -206,7 +208,7 @@
                     android:layout_height="wrap_content"
                     android:layout_width="fill_parent"
                     android:layout_gravity="center_vertical"
-                    zaren:ignoreFirst="true"></com.zaren.HdhomerunSignalMeterLib.ui.ArraySpinner>
+                    zaren:ignoreFirst="true"/>
 
             <LinearLayout
                     android:id="@+id/linearLayout4"
@@ -219,7 +221,7 @@
                         android:id="@+id/channelText"
                         android:layout_weight="0.23"
                         android:inputType="number"
-                        android:layout_gravity="center_vertical"></EditText>
+                        android:layout_gravity="center_vertical"/>
 
                 <Button
                         android:layout_height="wrap_content"
@@ -227,7 +229,7 @@
                         android:layout_width="wrap_content"
                         android:text="@string/tune_button_label"
                         android:layout_weight="0.42"
-                        android:layout_gravity="center_vertical"></Button>
+                        android:layout_gravity="center_vertical"/>
             </LinearLayout>
 
             <LinearLayout
@@ -243,7 +245,7 @@
                         android:scaleType="fitCenter"
                         android:layout_gravity="center_vertical"
                         android:padding="0dp"
-                        android:minWidth="75dp"></ImageButton>
+                        android:minWidth="75dp"/>
 
                 <ImageButton
                         android:id="@+id/scanForwardButton"
@@ -253,7 +255,7 @@
                         android:src="@drawable/ic_menu_ffwd"
                         android:padding="0dp"
                         android:layout_gravity="center_vertical"
-                        android:minWidth="75dp"/>
+                        android:minWidth="75dp" />
 
             </LinearLayout>
 
@@ -261,7 +263,7 @@
                     android:id="@+id/programSpinner"
                     android:layout_height="wrap_content"
                     android:layout_width="fill_parent"
-                    zaren:ignoreFirst="true"></com.zaren.HdhomerunSignalMeterLib.ui.ArraySpinner>
+                    zaren:ignoreFirst="true"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -269,15 +271,13 @@
             android:id="@+id/linearLayout7"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads">
+            android:orientation="vertical">
 
-        <com.google.ads.AdView
+        <com.google.android.gms.ads.AdView
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 ads:adSize="BANNER"
-                ads:adUnitId="a14e6d7a1b7ed1a"
+                ads:adUnitId="@string/banner_ad_unit_id"
                 android:id="@+id/adView"
                 android:layout_gravity="center_horizontal"/>
     </LinearLayout>

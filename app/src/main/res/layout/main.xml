@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:zaren="http://schemas.android.com/apk/res/com.zaren"
-              android:layout_width="fill_parent"
-              android:layout_height="fill_parent"
-              android:orientation="vertical"
-              android:weightSum="1">
-
+    xmlns:zaren="http://schemas.android.com/apk/res-auto"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:weightSum="1">
 
     <LinearLayout
             android:id="@+id/linearLayout2"
@@ -17,9 +18,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:text="@string/device_label"
-                android:textAppearance="?android:attr/textAppearanceLarge">
-        </TextView>
+                tools:text="device_label"
+                android:textAppearance="?android:attr/textAppearanceLarge"/>
 
         <com.zaren.HdhomerunSignalMeterLib.ui.ArraySpinner
                 android:id="@+id/deviceSpinner"
@@ -27,9 +27,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 zaren:ignoreFirst="false"
-                android:layout_gravity="center">
-        </com.zaren.HdhomerunSignalMeterLib.ui.ArraySpinner>
-
+                android:layout_gravity="center"/>
 
         <ImageButton
                 android:id="@+id/refreshDevicesButton"
@@ -39,9 +37,7 @@
                 android:scaleType="centerInside"
                 android:src="@drawable/ic_menu_refresh"
                 android:padding="0dp"
-                android:minWidth="75dp">
-
-        </ImageButton>
+                android:minWidth="75dp"/>
     </LinearLayout>
 
 
@@ -50,12 +46,10 @@
             android:layout_height="wrap_content"
             android:stretchColumns="1">
 
-
         <TableRow
                 android:id="@+id/tableRow1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
-
 
             <TextView
                     android:id="@+id/textView2"
@@ -63,7 +57,8 @@
                     android:layout_height="fill_parent"
                     android:layout_column="0"
                     android:layout_marginRight="5dp"
-                    android:text="@string/channel_label"
+                    android:layout_marginEnd="5dp"
+                    tools:text="channel_label"
                     android:textAppearance="?android:attr/textAppearanceLarge"/>
 
             <TextView
@@ -73,7 +68,7 @@
                     android:layout_column="1"
                     android:layout_gravity="bottom"
                     android:layout_span="2"
-                    android:text="@string/none_label"
+                    tools:text="none_label"
                     android:textAppearance="?android:attr/textAppearanceMedium"/>
         </TableRow>
 
@@ -90,7 +85,8 @@
                     android:layout_height="fill_parent"
                     android:layout_column="0"
                     android:layout_marginRight="5dp"
-                    android:text="@string/signal_strength_label"
+                    android:layout_marginEnd="5dp"
+                    tools:text="signal_strength_label"
                     android:textAppearance="?android:attr/textAppearanceLarge"/>
 
             <com.zaren.HdhomerunSignalMeterLib.ui.SigStrengthProgressBar
@@ -114,7 +110,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="fill_parent"
                     android:layout_column="0"
-                    android:text="@string/snr_quality_label"
+                    tools:text="snr_quality_label"
                     android:textAppearance="?android:attr/textAppearanceLarge"/>
 
             <com.zaren.HdhomerunSignalMeterLib.ui.SnrQualityProgressBar
@@ -137,7 +133,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="fill_parent"
                     android:layout_column="0"
-                    android:text="@string/sym_quality_label"
+                    tools:text="sym_quality_label"
                     android:textAppearance="?android:attr/textAppearanceLarge"/>
 
             <com.zaren.HdhomerunSignalMeterLib.ui.SymbolQualityProgressBar
@@ -159,7 +155,7 @@
                     android:id="@+id/textView3"
                     android:layout_width="wrap_content"
                     android:layout_height="fill_parent"
-                    android:text="@string/data_rate_label"
+                    tools:text="data_rate_label"
                     android:textAppearance="?android:attr/textAppearanceLarge"/>
 
             <TextView
@@ -181,7 +177,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="fill_parent"
                     android:layout_gravity="center_vertical"
-                    android:text="@string/network_rate_label"
+                    tools:text="network_rate_label"
                     android:textAppearance="?android:attr/textAppearanceLarge"/>
 
             <TextView
@@ -265,20 +261,18 @@
     </TableLayout>
 
     <LinearLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
             android:id="@+id/linearLayout7"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-        <com.google.ads.AdView
+        <com.google.android.gms.ads.AdView
                 android:id="@+id/adView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|bottom"
                 ads:adSize="BANNER"
-                ads:adUnitId="a14e6d7a1b7ed1a"/>
+                ads:adUnitId="@string/banner_ad_unit_id"/>
     </LinearLayout>
 
 </LinearLayout>

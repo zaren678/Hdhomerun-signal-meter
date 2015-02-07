@@ -1,8 +1,9 @@
 package com.zaren;
 
 
-import com.google.ads.AdRequest;
-import com.google.ads.AdView;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
 import com.zaren.ui.HdhomerunUI;
 import com.zaren.HdhomerunSignalMeterLib.data.DeviceListInt;
 import com.zaren.HdhomerunSignalMeterLib.data.DiscoverTask;
@@ -69,7 +70,7 @@ public class HdhomerunActivity extends Activity
 	  
       discoverDevices();
      
-      AdRequest request = new AdRequest();
+      AdRequest request = new AdRequest.Builder().build();
       //request.addTestDevice(AdRequest.TEST_EMULATOR);
      
       AdView adView = (AdView) findViewById(R.id.adView);
@@ -92,7 +93,7 @@ public class HdhomerunActivity extends Activity
 	  SharedPreferences mPreferences = PreferenceManager.getDefaultSharedPreferences(HdhomerunActivity.getAppContext());
       boolean lockOrientation = mPreferences.getBoolean(Preferences.KEY_PREF_LOCK_ORIENTATION, false);
       
-      if(lockOrientation == true)
+      if(lockOrientation)
       {
          this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
       }
@@ -157,7 +158,7 @@ public class HdhomerunActivity extends Activity
 	{
        boolean isWifi = wifiIpAddress(context) != null;
 
-       if(isWifi == false)
+       if(!isWifi)
 	   {
 	      ErrorHandler.HandleError("Wifi must be connected");
 	      return;
@@ -248,7 +249,7 @@ public class HdhomerunActivity extends Activity
       
       setContentView(R.layout.main);
 
-      AdRequest request = new AdRequest();
+      AdRequest request = new AdRequest.Builder().build();
       //request.addTestDevice(AdRequest.TEST_EMULATOR);
      
       AdView adView = (AdView) findViewById(R.id.adView);
