@@ -266,19 +266,4 @@
                     zaren:ignoreFirst="true"/>
         </LinearLayout>
     </LinearLayout>
-
-    <LinearLayout
-            android:id="@+id/linearLayout7"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-        <com.google.android.gms.ads.AdView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                ads:adSize="BANNER"
-                ads:adUnitId="@string/banner_ad_unit_id"
-                android:id="@+id/adView"
-                android:layout_gravity="center_horizontal"/>
-    </LinearLayout>
 </LinearLayout>

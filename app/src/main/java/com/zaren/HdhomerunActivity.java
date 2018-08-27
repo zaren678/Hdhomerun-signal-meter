@@ -1,9 +1,6 @@
 package com.zaren;
 
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.AdView;
 import com.zaren.ui.HdhomerunUI;
 import com.zaren.HdhomerunSignalMeterLib.data.DeviceListInt;
 import com.zaren.HdhomerunSignalMeterLib.data.DiscoverTask;
@@ -69,12 +66,6 @@ public class HdhomerunActivity extends Activity
       this.registerReceiver(wifiReceiver, filter);
 	  
       discoverDevices();
-     
-      AdRequest request = new AdRequest.Builder().build();
-      //request.addTestDevice(AdRequest.TEST_EMULATOR);
-     
-      AdView adView = (AdView) findViewById(R.id.adView);
-      adView.loadAd(request);
    }
 
    @Override
@@ -249,13 +240,6 @@ public class HdhomerunActivity extends Activity
       
       setContentView(R.layout.main);
 
-      AdRequest request = new AdRequest.Builder().build();
-      //request.addTestDevice(AdRequest.TEST_EMULATOR);
-     
-      AdView adView = (AdView) findViewById(R.id.adView);
-      adView.loadAd(request);
-      
-      
       mUi.buildUIElements();
       mUiElements.resume();
    }
